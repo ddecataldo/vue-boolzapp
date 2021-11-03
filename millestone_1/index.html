@@ -63,7 +63,10 @@
                     </div>
                     <div class="test_profile">
                         <p class="name">{{ elemento.name }}</p>
-                        <p class="description">{{ elemento.messages.text }}</p>
+                        <p 
+                        class="description"
+                        >
+                        {{ elemento.messages[elemento.messages.length - 1].text }}</p>
                     </div>
                     <div class="data">
                         <p>03/11/2021</p>

@@ -74,8 +74,8 @@ new Vue({
                 ],
             },
             {
-                name: 'Luisa',
-                avatar: 'img/avatar_4.jpg',
+                name: 'Bea',
+                avatar: 'img/avatar_6.jpg',
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',

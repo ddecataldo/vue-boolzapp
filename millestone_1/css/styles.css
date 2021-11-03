@@ -140,6 +140,7 @@ DEBUG
     align-items: center;
     padding: 15px;
     border-bottom: 1px solid #ccc;
+    position: relative;
 }
 .list_user .user img{
     width: 60px;
@@ -149,7 +150,7 @@ DEBUG
     padding-left: 15px;
 }
 .list_user .user .name{
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
 }
 .list_user .user .description{
