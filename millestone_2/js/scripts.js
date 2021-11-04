@@ -97,7 +97,9 @@ new Vue({
     methods: {
         onChatClick(chatDaAttivare) {
             this.activeChat = chatDaAttivare;
-        },
-
+        }
+    },
+    mounted(){
+        this.activeChat = this.userList[0];
     }
 });

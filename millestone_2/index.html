@@ -81,10 +81,10 @@
             <div class="option_profile_chat">         
                 <div class="info_profile">
                     <div class="img_profile">
-                        <img src="img/avatar_2.jpg">
+                        <img :src="activeChat.avatar">
                     </div>
                     <div class="text_profile">
-                        <p class="name">Nome Utente</p>
+                        <p class="name">{{ activeChat.name }}</p>
                         <p class="description">Ultimo messaggio di oggi</p>
                     </div>
                 </div>
@@ -96,11 +96,13 @@
             </div>
 
             <div class="chat">
-                <div class="message sent">Messaggio Inviato</div>
-                <div class="message received">Messaggio Ricevuto</div>
+                <div 
+                class="message" :class="chat.status === 'sent' ? 'sent' : 'received' "
+                v-for="chat in activeChat.messages">{{ chat.text }}</div>
             </div>
 
             <div class="container_chat">
+
                 <i class="far fa-smile" aria-hidden="true"></i>
 
                 <input id="message" type="text" placeholder="Scrivi un messaggio">
