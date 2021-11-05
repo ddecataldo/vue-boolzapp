@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <title>Vue Boolzapp</title>
+
+</head>
+<body class="debug">
+
+    <div class="top_bar"></div>
+
+    <div id="main" class="container d-flex">
+        
+        <div class="content_area_left">
+
+            <!-- Contenitore immagine profilo e icone -->
+            <div class="option_profile">         
+                <div class="img_profile">
+                    <img src="img/avatar_2.jpg">
+                    <p>Davide Decataldo</p>
+                </div>
+                <div class="icons_profile">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+
+            <!-- Contenitore notiifche -->
+            <div class="notifications d-flex">     
+                <div class="icon_notifications d-flex justify-content-between align-items-center">
+                    <i class="fas fa-bell-slash"></i>
+                </div>
+                <div class="text_notifications">
+                    <h4>Ricevi notifiche di nuovi messaggi</h4>
+                    <p>Attiva notifiche desktop</p>
+                </div>
+            </div>
+
+            <!-- Barra per la ricerca di utenti -->
+            <div class="search_bar">
+                <input id="search" type="text" placeholder="Cerca o inizia una nuova chat"
+                v-model="textSearch">
+            </div>
+
+            <!-- Contenitore lista utenti -->
+            <div class="list_user">
+                <div 
+                class="user"
+                v-for="(elemento, i) in getFilteredData()"
+                @click="onChatClick(elemento)"
+                >
+                    <div class="img_profile">
+                        <img :src="elemento.avatar">
+                    </div>
+                    <div class="test_profile">
+                        <p class="name">{{ elemento.name }}</p>
+                        <p 
+                        class="description"
+                        >
+                        {{ elemento.messages[elemento.messages.length - 1].text }}</p>
+                    </div>
+                    <div class="data">
+                        <p>03/11/2021</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="content_area_right">
+
+            <div class="option_profile_chat">         
+                <div class="info_profile">
+                    <div class="img_profile">
+                        <img :src="activeChat.avatar">
+                    </div>
+                    <div class="text_profile">
+                        <p class="name">{{ activeChat.name }}</p>
+                        <p class="description">Ultimo messaggio di oggi</p>
+                    </div>
+                </div>
+                <div class="icons_profile">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+
+            <div class="chat">
+                <div 
+                class="message" :class="chat.status === 'sent' ? 'sent' : 'received' "
+                v-for="chat in activeChat.messages">{{ chat.text }}</div>
+            </div>
+
+            <div class="container_chat">
+
+                <i class="far fa-smile" aria-hidden="true"></i>
+
+                <input id="message" type="text" placeholder="Scrivi un messaggio"
+                v-model="userText" v-on:keyup.enter="onSubmitClick()">
+
+                <i class="fas fa-microphone" aria-hidden="true"></i>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JS -->
+    <script src="js/scripts.js"></script>
+
+</body>
+</html>
