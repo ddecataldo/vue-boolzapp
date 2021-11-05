@@ -134,7 +134,7 @@ new Vue({
         }
 
     },
-    mounted(){
+    beforeMount(){
         this.activeChat = this.userList[0];
     }
 });
