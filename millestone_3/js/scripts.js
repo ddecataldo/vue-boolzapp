@@ -1,0 +1,140 @@
+/* 
+Milestone 1
+● Replica della grafica con la possibilità di avere messaggi scritti dall’utente (verdi) e
+dall’interlocutore (bianco) assegnando due classi CSS diverse
+● Visualizzazione dinamica della lista contatti: tramite la direttiva v-for, visualizzare
+nome e immagine di ogni contatto
+*/
+
+Vue.config.devtools = true;
+
+new Vue({
+    el: "#main",
+    data: {
+        userList: [
+            {
+                name: 'Michele',
+                avatar: 'img/avatar_1.jpg',
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Hai portato a spasso il cane?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Ricordati di dargli da mangiare',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 16:15:22',
+                        text: 'Tutto fatto!',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Fabio',
+                avatar: 'img/avatar_2.jpg',
+                messages: [
+                    {
+                        date: '20/03/2020 16:30:00',
+                        text: 'Ciao come stai?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '20/03/2020 16:30:55',
+                        text: 'Bene grazie! Stasera ci vediamo?',
+                        status: 'received'
+                    },
+                    {
+                        date: '20/03/2020 16:35:00',
+                        text: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                        status: 'sent'
+                    }
+                ],
+            },
+            {
+                name: 'Samuele',
+                avatar: 'img/avatar_3.jpg',
+                messages: [
+                    {
+                        date: '28/03/2020 10:10:40',
+                        text: 'La Marianna va in campagna',
+                        status: 'received'
+                    },
+                    {
+                        date: '28/03/2020 10:20:10',
+                        text: 'Sicuro di non aver sbagliato chat?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '28/03/2020 16:15:22',
+                        text: 'Ah scusa!',
+                        status: 'received'
+                    }
+                ],
+            },
+            {
+                name: 'Bea',
+                avatar: 'img/avatar_6.jpg',
+                messages: [
+                    {
+                        date: '10/01/2020 15:30:55',
+                        text: 'Lo sai che ha aperto una nuova pizzeria?',
+                        status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        text: 'Si, ma preferirei andare al cinema',
+                        status: 'received'
+                    }
+                ],
+            },
+        ],
+        userText: "",
+        activeChat: {},
+    },
+    methods: {
+        onChatClick(chatDaAttivare) {
+            // assegno a activeChat l'elemento dell'oggetto appena cliccato (l'argomento della funziona assegna l'elemento appena cliccato)
+            this.activeChat = chatDaAttivare;
+        },
+        onSubmitClick(){
+
+            // Controllo se l'utente ha inserito del testo, se non lo ha fatto esco dalla funzione
+            if (this.userText === "") {
+                return;
+            }
+
+            // All'elemento dell'oggetto corrisponte alla chat attiva pusho i dati: "date", "text", "status"
+            this.activeChat.messages.push(
+                {
+                    date: "04/11/2021 17:40:00",
+                    text: this.userText,
+                    status: "sent"
+                }
+            );
+
+            // Resetto il campo compilato dall'utente
+            this.userText = "";
+
+            // Imposto un intervallo per la risposta dell'utente
+            setTimeout(() => {
+                // Dopo 1 secondo pusho il messaggio
+                this.activeChat.messages.push(
+                    {
+                        date: "04/11/2021 19:00:00",
+                        text: "Ho ricevuto il messaggio",
+                        status: "received"
+                    }
+                );
+            }, 1000);
+            
+        }
+
+    },
+    mounted(){
+        this.activeChat = this.userList[0];
+    }
+});
