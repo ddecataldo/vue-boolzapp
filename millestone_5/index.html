@@ -72,8 +72,8 @@
                         >
                         {{ elemento.messages[elemento.messages.length - 1].text }}</p>
                     </div>
-                    <div class="data">
-                        <p>{{dayjs().format('DD/MM/YYYY HH:mm:ss')}}</p>
+                    <div class="data" v-if="elemento.messages.length > 0">
+                        <p>{{ elemento.messages[elemento.messages.length - 1].data }}</p>
                     </div>
                 </div>
             </div>
@@ -88,7 +88,7 @@
                     </div>
                     <div class="text_profile">
                         <p class="name">{{ activeChat.name }}</p>
-                        <p class="description">Ultimo messaggio di oggi</p>
+                        <p class="description">Ultimo accesso oggi alle {{dayjs().format('DD/MM/YYYY HH:mm:ss')}}</p>
                     </div>
                 </div>
                 <div class="icons_profile">
@@ -110,6 +110,7 @@
                         </div>
                     </div>
                     {{ chat.text }}
+                    <p class="data">{{ chat.data }}</p>
                 </div>
             </div>
 

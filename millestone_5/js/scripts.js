@@ -20,19 +20,22 @@ new Vue({
                         date: '10/01/2020 15:30:55',
                         text: 'Hai portato a spasso il cane?',
                         status: 'sent',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Ricordati di dargli da mangiare',
                         status: 'sent',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         text: 'Tutto fatto!',
                         status: 'received',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     }
                 ],
             },
@@ -44,19 +47,23 @@ new Vue({
                         date: '20/03/2020 16:30:00',
                         text: 'Ciao come stai?',
                         status: 'sent',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
+                        
                     },
                     {
                         date: '20/03/2020 16:30:55',
                         text: 'Bene grazie! Stasera ci vediamo?',
                         status: 'received',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     },
                     {
                         date: '20/03/2020 16:35:00',
                         text: 'Mi piacerebbe ma devo andare a fare la spesa.',
                         status: 'sent',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     }
                 ],
             },
@@ -68,19 +75,22 @@ new Vue({
                         date: '28/03/2020 10:10:40',
                         text: 'La Marianna va in campagna',
                         status: 'received',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     },
                     {
                         date: '28/03/2020 10:20:10',
                         text: 'Sicuro di non aver sbagliato chat?',
                         status: 'sent',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     },
                     {
                         date: '28/03/2020 16:15:22',
                         text: 'Ah scusa!',
                         status: 'received',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     }
                 ],
             },
@@ -92,13 +102,15 @@ new Vue({
                         date: '10/01/2020 15:30:55',
                         text: 'Lo sai che ha aperto una nuova pizzeria?',
                         status: 'sent',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Si, ma preferirei andare al cinema',
                         status: 'received',
-                        statusPopUp: false
+                        statusPopUp: false,
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     }
                 ],
             },
@@ -124,7 +136,8 @@ new Vue({
                 {
                     date: "04/11/2021 17:40:00",
                     text: this.userText,
-                    status: "sent"
+                    status: "sent",
+                    data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                 }
             );
 
@@ -138,7 +151,8 @@ new Vue({
                     {
                         date: "04/11/2021 19:00:00",
                         text: "Ho ricevuto il messaggio",
-                        status: "received"
+                        status: "received",
+                        data: dayjs().format('DD/MM/YYYY HH:mm:ss')
                     }
                 );
             }, 1000);

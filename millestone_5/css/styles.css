@@ -227,11 +227,17 @@ DEBUG
 .chat .message{
     max-width: 40%;
     min-width: 20%;
-    padding: 20px;
+    padding: 10px 20px;
     margin: 20px;
     border-radius: 15px;
     position: relative;
     z-index: 0;
+}
+.chat .message .data{
+    text-align: right;
+    color: #B6B9BB;
+    font-size: 13px;
+    padding-top: 5px;
 }
 .chat .message .arrow i{
     position: absolute;
